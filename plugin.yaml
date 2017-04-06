@@ -1,0 +1,6 @@
+name: "keybase"
+version: "0.1.0"
+usage: "Integreate Keybase.io tools with Helm"
+description: |-
+  This plugin provides Keybase services to Helm.
+command: "$HELM_PLUGIN_DIR/keybase.sh"
