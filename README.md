@@ -1,21 +1,27 @@
-# Helm Plugins
+# Helm Keybase
 
-This repository contains several Helm plugins, along with an installation script.
+This plugin provides [Keybase](https://keybase.io) services to Helm.
 
-## Plugins
+The plugin is designed to make it easy for you to do three things:
 
-- `keybase`: Provide Keybase integration to Helm
-- `github`: Provide GitHub integration to Helm
-- `env`: Display the environment passed to a plugin.
-- `hello`: An example of a basic Helm plugin
+- Host your chart repo on Keybase. Here's my [example repo](https://technosophos.keybase.pub/charts/)
+- Sign charts with your Keybase key
+- Verify charts with your Keybase keyring
+
 
 ## Installation
 
-1. Set HELM_HOME: `export HELM_HOME=$(helm home)`
-2. Run `make install`.
+This requires that you have installed the Keybase command line client.
+
+```console
+$ helm plugin install https://github.com/technosophos/helm-keybase
+```
 
 ## Usage
 
-- Run `helm help` to see the new plugins.
-- Run `helm keybase --help` for keybase help.
-- Run `helm github --help` for github help.
+The basic commands are:
+
+- `helm keybase help`: Print help text
+- `helm keybase push`: Push your chart to your local mount of the keybase file system.
+- `helm keybase sign`: Sign a chart with your keybase identity.
+- `helm keybase verify`: Verify a chart with your keybase keyring.
