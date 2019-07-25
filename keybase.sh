@@ -105,7 +105,7 @@ sign() {
   fi
   chart=$1
   echo "Signing $chart"
-  shasum=$(openssl sha -sha256 $chart| awk '{ print $2 }')
+  shasum=$(openssl sha1 -sha256 $chart| awk '{ print $2 }')
   chartyaml=$(tar -zxf $chart --exclude 'charts/' -O '*/Chart.yaml')
 c=$(cat << EOF
 $chartyaml
@@ -139,7 +139,7 @@ verify() {
 }
 
 shasum() {
-  openssl sha -sha256 "$1" | awk '{ print $2 }'
+  openssl sha1 -sha256 "$1" | awk '{ print $2 }'
 }
 
 kuser() {
